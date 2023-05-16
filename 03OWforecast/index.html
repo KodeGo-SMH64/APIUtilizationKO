@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fetch API</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <h1>Weather Forecast</h1>
+    <div class="search-container">
+        <input type="text" id="cityInput" placeholder="Enter City name...">
+        <button onclick="getWeatherForecast()">Get Weather
+        </button>
+        </div>
+        <h2>Hourly Forecast for Today</h2>
+        <div id="forecastContainer"></div>
+        <h3>Weekly Forecast with Graph</h3>
+        <div id="barChart"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="script.js"></script>
+    
+  </body>
+</html>
+ 
