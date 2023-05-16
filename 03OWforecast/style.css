@@ -7,8 +7,9 @@ body, h1, h2, p, input, button {
 body {
   font-family: Arial, sans-serif;
   /* background-color: #dad9d9; */
-  background: linear-gradient(to bottom right, #ffffff, #e0e6ff) fixed  center center/cover;
+  /* background: linear-gradient(to bottom right, #ffffff, #e0e6ff) fixed  center center/cover; */
   align-items: center;
+  background-image: url(../03OWforecast/img/pexels-lachlan-ross-7084204.jpg) no-repeat center center/cover;
 }
 
 h1 {
