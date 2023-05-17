@@ -10,6 +10,9 @@ function getWeatherForecast() {
   
     const url = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
 
+  //   const spinner = document.getElementById('spinner');
+  // spinner.style.display = 'block'; 
+
     //FAILED "PRESS ENTER"
     // const cityInput = document.getElementById('cityInput');
 // cityInput.addEventListener('keydown', (event) => {
@@ -31,7 +34,12 @@ function getWeatherForecast() {
     }  
     function displayWeatherForecast(data) {
       const forecastContainer = document.getElementById('forecastContainer');
-      forecastContainer.innerHTML = "";
+      const barChart = document.getElementById('barChart');
+
+      forecastContainer.innerHTML = '';
+      // barChart.innerHTML = '<canvas id="chart"></canvas>';
+      barChart.innerHTML = '';
+
       
       for (let i = 0; i < data.list.length; i+=7) {
         const weatherData = data.list[i]
@@ -51,34 +59,41 @@ function getWeatherForecast() {
     
             `;
 
-        forecastContainer.appendChild(card)
-   
+        forecastContainer.appendChild(card);
       }
-
-      //FAILED CHART
-    //   const barChart = document.getElementById('barChart');
-    //   barChart.innerHTML = '<canvas id="chart"></canvas>';
+      const labels = data.list.slice(0, 7).map((weatherData) => {
+        const date = new Date(weatherData.dt_txt);
+        return date.toLocaleTimeString(undefined, { hour: 'numeric' });
+      });
     
-    //   new Chart(document.getElementById("chart"), {
-    //     type: 'bar',
-    //     data: {
-    //       labels: labels,
-    //       datasets: [{
-    //         label: 'Temperature',
-    //         data: temperatures,
-    //         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-    //         borderColor: 'rgba(75, 192, 192, 1)',
-    //         borderWidth: 1
-    //       }]
-    //     },
-    //     options: {
-    //       responsive: true,
-    //       scales: {
-    //         y: {
-    //           beginAtZero: true
-    //         }
-    //       }
-    //     }
-    //   });
-
+      const temperatures = data.list.slice(0, 7).map((weatherData) => weatherData.main.temp);
+    
+      barChart.innerHTML = '<canvas id="chart"></canvas>';
+    
+      new Chart(document.getElementById('chart'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Temperature',
+              data: temperatures,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      document.getElementById('hourlyForecastTitle').style.display = 'block';
+  document.getElementById('weeklyForecastTitle').style.display = 'block';
     }

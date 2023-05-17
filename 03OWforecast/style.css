@@ -7,7 +7,7 @@ body, h1, h2, p, input, button {
 body {
   font-family: Arial, sans-serif;
   /* background-color: #dad9d9; */
-  background: linear-gradient(to bottom right, #ffffff, #e0e6ff) fixed  center center/cover;
+  background: linear-gradient(to bottom right, #ffffff, #25704d) fixed  center center/cover;
   align-items: center;
 }
 
@@ -47,6 +47,8 @@ h3 {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  border-color: #0bc214;
+  color: #0bc214;
 }
 
 input[type='text'] {
@@ -78,6 +80,15 @@ button:hover {
   justify-content: center; 
   grid-gap: 10px; 
 }
+
+#barChart {
+  display: grid;
+  justify-content: center; 
+  width: 700px; 
+  height: 300px;
+  box-sizing: border-box;
+  /* border: 1px solid #d9e6ff; */
+}  
 
 /* .card {
   border: 1px solid #0c0c0c;

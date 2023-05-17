@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Fetch API</title>
+    <title>The Forecast</title>
     <link rel="stylesheet" href="style.css">
     
   </head>
@@ -12,15 +12,17 @@
         <button onclick="getWeatherForecast()">Get Weather
         </button>
         </div>
-        <h2>Hourly Forecast for Today</h2>
+        <h2 id="hourlyForecastTitle" style="display: none;">Hourly Forecast for Today</h2>
         <div id="forecastContainer"></div>
-        <h3>Weekly Forecast with Graph</h3>
+        <h3 id="weeklyForecastTitle" style="display: none;">Weekly Forecast with Graph</h3>
+        <div class="container">
         <div id="barChart"></div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     
   </body>
 </html>
- 
+
